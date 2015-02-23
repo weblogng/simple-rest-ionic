@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('SimpleRESTIonic', ['ionic', 'angular-storage'])
+angular.module('SimpleRESTIonic', ['ionic', 'angular-storage', 'weblogng'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -18,6 +18,14 @@ angular.module('SimpleRESTIonic', ['ionic', 'angular-storage'])
   });
 })
 .constant('ENDPOINT_URI', 'https://simple-rest-api.herokuapp.com/api/')
+.constant('weblogngConfig', {
+    apiKey: 'd156e786-9cb4-4737-99ad-fdb905340275',
+    options: {
+      publishNavigationTimingMetrics: true,
+      publishUserActive: true,
+      application: 'simple-rest-website'
+    }
+  })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 $stateProvider
   .state('dashboard', {
