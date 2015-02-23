@@ -8,8 +8,6 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/app.css">
-
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -40,63 +38,69 @@
 <script type="text/ng-template" id="dashboard.html">
   <ion-view title="Dashboard">
     <ion-content padding="true">
-      <h2>Dashboard</h2>
-        <div class="">
+        <div>
             <div class="list">
                 <div class="item" ng-repeat="item in dashboard.items"
                      ng-click="dashboard.setEditedItem(item)"
                      ng-class="{'active':dashboard.isCurrentItem(item.id)}">
-
-                    <button type="button" class="close" ng-click="dashboard.deleteItem(item.id)">&times;</button>
-                    <h3>{{item.name}}</h3>
-
-                    <p><strong>{{item.description}}</strong></p>
+                    <div class="card">
+                      <div class="item item-divider">
+                          <button type="button" class="button ion-close-round button-small" ng-click="dashboard.deleteItem(item.id)"></button>&nbsp;{{item.name}}
+                      </div>
+                      <div class="item item-text-wrap">
+                          {{item.description}}
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-8">
+        <div>
             <!-- CREATING -->
-            <div ng-if="!dashboard.isEditing" class="col-xs-12">
+            <div ng-if="!dashboard.isEditing">
                 <h4>Create a New Item</h4>
                 <hr/>
                 <form class="create-form" role="form"
                       ng-submit="dashboard.createItem(dashboard.newItem)" novalidate>
-                    <div class="form-group">
-                        <label>Item Name</label>
-                        <input type="text" class="form-control"
-                               ng-model="dashboard.newItem.name"
-                               placeholder="Enter name">
+                    <div class="list">
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Name</span>
+                            <input type="text" class="form-control"
+                                   ng-model="dashboard.newItem.name"
+                                   placeholder="Enter name">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Description</span>
+                            <input type="text" class="form-control"
+                                   ng-model="dashboard.newItem.description"
+                                   placeholder="Enter description">
+                        </label>
                     </div>
-                    <div class="form-group">
-                        <label>Item Description</label>
-                        <input type="text" class="form-control"
-                               ng-model="dashboard.newItem.description"
-                               placeholder="Enter description">
-                    </div>
-                    <button type="submit" class="btn btn-info btn-lg">Create</button>
+                    <button type="submit" class="button button-positive">Create</button>
                 </form>
             </div>
             <!-- EDITING -->
-            <div ng-if="dashboard.isEditing" class="col-xs-12">
+            <div ng-if="dashboard.isEditing">
                 <h4>Editing {{dashboard.editedItem.name}}</h4>
                 <hr/>
                 <form class="edit-form" role="form"
                       ng-submit="dashboard.updateItem(dashboard.editedItem)" novalidate>
-                    <div class="form-group">
-                        <label>Item Name</label>
-                        <input type="text" class="form-control"
-                               ng-model="dashboard.editedItem.name"
-                               placeholder="Enter name">
+                    <div class="list">
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Name</span>
+                            <input type="text" class="form-control"
+                                   ng-model="dashboard.editedItem.name"
+                                   placeholder="Enter name">
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Description</span>
+                            <input type="text" class="form-control"
+                                   ng-model="dashboard.editedItem.description"
+                                   placeholder="Enter description">
+                        </label>
                     </div>
-                    <div class="form-group">
-                        <label>Item Description</label>
-                        <input type="text" class="form-control"
-                               ng-model="dashboard.editedItem.description"
-                               placeholder="Enter description">
-                    </div>
-                    <button type="submit" class="btn btn-info btn-lg">Save</button>
-                    <button type="button" class="btn btn-default btn-lg pull-right"
-                            ng-click="dashboard.cancelEditing()">Cancel
+                    <button type="submit" class="button button-positive">Save</button>
+                    <button type="button" class="button button-clear" ng-click="dashboard.cancelEditing()">
+                        Cancel
                     </button>
                 </form>
             </div>
