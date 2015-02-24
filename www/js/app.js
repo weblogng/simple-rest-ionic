@@ -23,7 +23,7 @@ angular.module('SimpleRESTIonic', ['ionic', 'angular-storage', 'weblogng'])
     options: {
       publishNavigationTimingMetrics: true,
       publishUserActive: true,
-      application: 'simple-rest-website'
+      application: 'simple-rest-ionic'
     }
   })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
