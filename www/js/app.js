@@ -66,7 +66,7 @@ $stateProvider
 
     service.responseError = function(response) {
         if (response.status === 401) {
-            $rootScope.$broadcast('authorized');
+            $rootScope.$broadcast('unauthorized');
         }
         return response;
     };
