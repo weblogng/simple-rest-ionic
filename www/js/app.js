@@ -199,6 +199,7 @@ $stateProvider
     main.currentUser = UserService.getCurrentUser();
 })
 .controller('DashboardCtrl', function(ItemsModel){
+
     var dashboard = this;
 
     function getItems() {
@@ -250,9 +251,15 @@ $stateProvider
         dashboard.isEditing = false;
     }
 
+    function cancelCreateItem() {
+        initCreateForm();
+        dashboard.isCreating = false;
+    }
+
     dashboard.items = [];
     dashboard.editedItem = null;
     dashboard.isEditing = false;
+    dashboard.isCreating = false;
     dashboard.getItems = getItems;
     dashboard.createItem = createItem;
     dashboard.updateItem = updateItem;
@@ -260,6 +267,7 @@ $stateProvider
     dashboard.setEditedItem = setEditedItem;
     dashboard.isCurrentItem = isCurrentItem;
     dashboard.cancelEditing = cancelEditing;
+    dashboard.cancelCreateItem = cancelCreateItem;
 
     initCreateForm();
     getItems();

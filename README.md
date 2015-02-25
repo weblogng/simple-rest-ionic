@@ -4,6 +4,12 @@ simple-rest-ionic is an implementation of @[simpulton's](https://github.com/simp
 
 
 ## Getting Started ##
+
+Run NPM and Bower to make sure all dependencies are downloaded:
+
+    $ npm install
+    $ bower install
+
 Ensure you have ionic installed:
 
     $ npm install -g cordova ionic
