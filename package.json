@@ -2,6 +2,7 @@
   "name": "simple-rest-ionic",
   "version": "1.0.0",
   "description": "simple-rest-ionic: An Ionic project",
+  "repository" : "https://github.com/simpulton/simple-rest-ionic.git",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
